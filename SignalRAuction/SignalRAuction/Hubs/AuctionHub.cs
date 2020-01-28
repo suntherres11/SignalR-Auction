@@ -36,7 +36,7 @@ namespace SignalRAuction.Hubs
         private void InitializeAuction()
         {
             // Initialize model
-            auctionViewModel = new AuctionViewModel(0, 10, DateTime.Now.AddSeconds(30), 0);
+            auctionViewModel = new AuctionViewModel(0, 1000, DateTime.Now.AddSeconds(30), 0);
 
             timer = new System.Threading.Timer(TimerExpired, null, secs_10, 0);
 
@@ -74,7 +74,7 @@ namespace SignalRAuction.Hubs
 
         public void CallRefresh()
         {
-            AuctionRefresh(auctionViewModel);
+            AuctionRefresh(auctionViewModel); 
         }
 
         public void NotifyNewBid(string user, decimal value)

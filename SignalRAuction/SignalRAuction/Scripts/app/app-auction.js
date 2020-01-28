@@ -53,8 +53,8 @@ ns_sra.app.auction = (function (appMain, utilTimer) {
 $(function () {
     var appMain = ns_sra.app.main(),
         utilTimer = ns_sra.util.timer(),
-        appAuction = ns_sra.app.auction(appMain, utilTimer);
-
+        appAuction = ns_sra.app.auction(appMain, utilTimer),
+        auctionHub = $.connection.auctionHub;
 
     // Declare a function on the chat hub so the server can invoke it
     auctionHub.client.auctionRefresh = function (model) {
@@ -97,7 +97,7 @@ $(function () {
         e.preventDefault();
     });
 
-    // Start connection
+     //Start connection
     $.connection.hub.start().done(function () {
         auctionHub.server.callRefresh();
     });

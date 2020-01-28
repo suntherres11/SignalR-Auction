@@ -24,7 +24,7 @@ namespace SignalRAuction.Models
         public DateTime EndTime { get; set; }
 
         public decimal ValueLastBid { get; set; }
-        public decimal ValueNextBid { get { return ValueLastBid + (decimal)0.01; } }
+        public decimal ValueNextBid { get { return ValueLastBid + (decimal)IncrementAmountPerBid; } }
         public string LastUserBid { get; set; }
 
         public string EndTimeFullText
